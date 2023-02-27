@@ -1,0 +1,99 @@
+@import "//at.alicdn.com/t/font_3126894_wvk7g46oygi.css";
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*background-color: hsl(0,0%,90%);*/
+    box-sizing: border-box;
+    padding: 10px 50px;
+    margin: 0px auto;
+}
+
+.header .left{
+    display: flex;
+    align-items: center;
+}
+
+.header .left a{
+    width: 40px;
+    height: 40px;
+    background-image:url("school.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header .left .info{
+    padding-left: 12px;
+}
+
+.header .left .info h1{
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 仿宋;
+}
+
+.header .left .info span{
+    font-size: 25px;
+    font-weight: 400;
+    padding: 28px;
+    font-family: 宋体;
+}
+
+.body{
+    height: 675px;
+    background-image:url("welcome2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    position: relative;
+}
+
+.body a{
+    width: 180px;
+    height: 50px;
+    background-color: #3ace72;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+
+.body a:nth-child(1){
+    position: absolute;
+    top: 270px;
+    left: 470px;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.body a:nth-child(2){
+    position: absolute;
+    top: 270px;
+    left:840px;
+}
+
+.body a:nth-child(1):hover{
+    background-color: #f0f0f0;
+}
+.body a:nth-child(2):hover{
+    background-color: #52ed9a;
+}
+
+.body a i{
+    font-size: 18px;
+    padding-right:7px;
+}
+
+
+

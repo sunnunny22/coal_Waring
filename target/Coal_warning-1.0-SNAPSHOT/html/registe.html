@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册页面</title>
+  <base href="http://localhost:8080">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet"   href="/css/registered.css"/>
+  <script type="text/javascript">
+    //页面加载完成之后
+    $(function () {
+      $("span.errorMsg").text("");
+      $("#btn_sub").click(function () {
+        //验证用户名
+        var usernameText = $("#username").val();
+        var passwordText = $("#password").val();
+        var conformPassword = $("#confirm").val();
+        var usernamePatt = /^\w{5,12}$/;
+        var tellphone = $("#tel").val();
+        var confTel = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/;
+
+        if (!usernamePatt.test(usernameText)) {
+          // 提示用户结果
+          $("span.errorMsg").text("用户名不合法!");
+          return false;
+        }
+        $("span.errorMsg").text("");
+        if ((passwordText != conformPassword) | ((passwordText = " ") | (conformPassword = " "))) {
+          $("span.errorMsg").text("请检查密码与确认密码是否一致!");
+          return false;
+        }
+        $("span.errorMsg").text("");
+        if (!confTel.test(tellphone)) {
+          $("span.errorMsg").text("请正确填写您的手机号码！");
+          return false;
+        }
+        $("span.errorMsg").text("");
+        var codeText = $("#checkcode").val();
+        //去掉验证码前后空格
+        codeText = $.trim(codeText);
+        if (codeText == null || codeText == "") {
+          $("span.errorMsg").text("验证码不能为空！");
+          return false;
+        }
+        $("span.errorMsg").text("");
+
+
+      });
+    });
+
+
+  </script>
+</head>
+<body>
+<div class="rg_layout">
+
+  <div class="rg_left">
+    <p>新用户注册</p>
+    <p>USER REGISTER</p>
+    <span class="errorMsg">提示:用户名不合法</span>
+  </div>
+
+  <div class="rg_center">
+    <div class="rg_form">
+      <form  method="post" action="/user/register.do" >
+        <table>
+          <tr>
+            <td class="td_left"><label for="username">用户名</label></td>
+            <td class="td_right"><input type="text" name="username" id="username" placeholder="请输入用户名"></td>
+
+          </tr>
+          <tr>
+            <td class="td_left"><label for="password">密码</label></td>
+            <td class="td_right"><input type="password" name="password" id="password" placeholder="请输入密码">
+            </td>
+          </tr>
+          <tr>
+            <td class="td_left"><label for="confirm">确认密码</label></td>
+            <td class="td_right"><input type="password" name="confirm" id="confirm" placeholder="请再次输入密码">
+            </td>
+          </tr>
+          <tr>
+            <td class="td_left"><label for="name">姓名</label></td>
+            <td class="td_right"><input type="text" name="name" id="name" placeholder="请输入姓名"></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label for="tel">手机号</label></td>
+            <td class="td_right"><input type="text" name="tel" id="tel" placeholder="请输入手机号"></td>
+          </tr>
+          <!--  <tr>
+                <td class="td_left"><label>性别</label></td>
+                <td class="td_right"><input type="radio" name="gender" value="male">男
+                    <input type="radio" name="gender" value="female">女</td>
+            </tr>-->
+          <tr>
+            <td class="td_left"><label for="birthday">出生日期</label></td>
+            <td class="td_right"><input type="date" name="birthday" id="birthday"></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label for="checkcode">验证码</label></td>
+            <td class="td_right"><input type="text" name="checkcode" id="checkcode" placeholder="请输入验证码">
+              <img id="img_check" src="html/img.png">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><input type="submit" id="btn_sub" value="注册" ></td>
+          </tr>
+        </table>
+
+      </form>
+    </div>
+  </div>
+  <div class="rg_right">
+    <p>已有账号?<a href="html/登录页面.html">立即登录</a></p>
+  </div>
+
+</div>
+</body>
+</html>

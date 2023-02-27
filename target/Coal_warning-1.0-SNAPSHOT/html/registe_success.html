@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据可视化</title>
+    <link rel="stylesheet" href="../css/index.css" />
+</head>
+<body>
+<!-- 头部 -->
+<header>
+    <h1>煤炭安全预警平台</h1>
+    <div class="showTime">1111111111</div>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000); //開始运行
+        function time() {
+            clearTimeout(t); //清除定时器
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours(); //获取时
+            var m = dt.getMinutes(); //获取分
+            var s = dt.getSeconds(); //获取秒
+            document.querySelector(".showTime").innerHTML =
+                "当前时间：" +
+                y +
+                "年" +
+                mt +
+                "月" +
+                day +
+                "-" +
+                h +
+                "时" +
+                m +
+                "分" +
+                s +
+                "秒";
+            t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
+    </script>
+</header>
+<!-- 页面主体盒子 -->
+<section class="mainbox">
+    <!-- 左侧 -->
+    <div class="column">
+
+        <div class="panel bar">
+            <h2>瓦斯浓度平均状况(近7天)</h2>
+            <div class="chart"></div>
+            <div class="panel-footer"></div>
+        </div>
+
+        <div class="panel line">
+            <h2>瓦斯实时浓度观测表</h2>
+            <div class="chart"></div>
+            <div class="panel-footer"></div>
+        </div>
+
+        <div class="panel pie">
+            <h2>矿井设备分布图</h2>
+            <div class="chart"></div>
+            <div class="panel-footer"></div>
+        </div>
+
+    </div>
+    <!-- 中间 -->
+    <div class="column">
+        <div class="no">
+            <div class="no-hd">
+                <ul>
+                    <li>56</li>
+                    <li>8</li>
+                </ul>
+            </div>
+            <div class="no-bd">
+                <ul>
+                    <li>设备总数</li>
+                    <li>异常设备</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="map">
+            <div class="map1"></div>
+            <div class="map2"></div>
+            <div class="map3"></div>
+            <div class="chart"></div>
+        </div>
+    </div>
+    <!-- 右侧 -->
+    <div class="column">
+        <div class="panel bar2">
+            <h2>矿下温度值</h2>
+            <div class="chart"></div>
+            <div class="panel-footer"></div>
+        </div>
+        <div class="panel line2">
+            <h2>预警分析</h2>
+            <div class="chart"></div>
+            <div class="panel-footer"></div>
+        </div>
+        <div class="panel pie2">
+            <h2>安全帽实时反馈</h2>
+            <div class="chart"></div>
+            <div class="panel-footer">
+                <button href="">实时监测</button>
+                <a href="index1.html">设备定位</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../js/flexible.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/jquery.js"></script>
+<!-- 想使用地图必先引入china.js -->
+<script src="../js/china.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/map.js"></script>
+</body>
+</html>
